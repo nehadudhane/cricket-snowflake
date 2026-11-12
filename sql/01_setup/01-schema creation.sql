@@ -15,7 +15,7 @@ use schema cricket.land;
 --json file format
  create or replace file format cricket.land.my_json_format
  type = json
- null_if = ('\n', 'null', '')
+ null_if = ('\\n', 'null', '')
  strip_outer_array=true
  comment ='Json File Format with outer stip arrray flag true';
 
@@ -41,5 +41,4 @@ select
      from  @my_stg/cricket/json/1384401.json (file_format => 'my_json_format') t;
 
 SELECT CURRENT_ORGANIZATION_NAME(), CURRENT_ACCOUNT_NAME();
-
 
